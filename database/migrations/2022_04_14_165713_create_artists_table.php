@@ -17,8 +17,24 @@ class CreateArtistsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
-            $table->string('post')->nullable();
-            $table->string('link')->nullable();
+            $table->string('department')->nullable();
+            $table->string('designation')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('address')->nullable();
+            $table->string('image')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('fb_link')->nullable();
+            $table->string('web_link')->nullable();
+            $table->string('tw_link')->nullable();
+            $table->string('youtube_link')->nullable();
+
+
+
+
+
+
+
+
             $table->timestamps();
         });
     }
