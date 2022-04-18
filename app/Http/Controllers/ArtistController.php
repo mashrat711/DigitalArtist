@@ -40,15 +40,16 @@ class ArtistController extends Controller
     public function store(StoreArtistRequest $request)
     {
         try{
-            $artistData = $StoreArtistRequest->all();
-            if($StoreArtistRequest->has('image')){
-                $ArtistImage = $StoreArtistRequest->name.'-'.time().'_'.$StoreArtistRequest->image->getClientOriginalName();
-                $StoreArtistRequest->image->move('dashboard/pictures/artists', $ArtistImage);
+            $artistData = $request->all();
+            // dd($artistData);
+            if($request->has('image')){
+                $ArtistImage = $request->name.'-'.time().'_'.$request->image->getClientOriginalName();
+                $request->image->move('dashboard/pictures/artists', $ArtistImage);
                 $artistData['image'] = $ArtistImage;
             }else{
                 $artistData['image'] = null;
             }
-            Product::create($artistData);
+            Artist::create($artistData);
             return redirect()->route('artists.index');
         }catch(QueryException $e){
             return redirect()->route('artists.create')->withInput()->withErrors($e->getMessage());
@@ -88,18 +89,18 @@ class ArtistController extends Controller
     public function update(UpdateArtistRequest $request, Artist $artist)
     {
         try{
-            $artistData = $UpdateArtistRequest->all();
+            $artistData = $request->all();
 
-            if($UpdateArtistRequest->hasFile('image')){
-                $artistImage = $UpdateArtistRequest->name.'-'.time().'_'.$UpdateArtistRequest->image->getClientOriginalName();
-                if(!empty($artist->image) && file_exists(public_path("dashboard/pictures/products/$artist->image"))){
-                    unlink(public_path("dashboard/pictures/products/$product->image"));
+            if($request->hasFile('image')){
+                $artistImage = $request->name.'-'.time().'_'.$request->image->getClientOriginalName();
+                if(!empty($artist->image) && file_exists(public_path("dashboard/pictures/artist/$artist->image"))){
+                    unlink(public_path("dashboard/pictures/artist/$artist->image"));
                 };
-                $UpdateArtistRequest->image->move('dashboard/pictures/products', $artistImage);
+                $request->image->move('dashboard/pictures/artist', $artistImage);
                 $artistData['image'] = $artistImage;
             }
             $artist->update($artistData);
-            return redirect()->route('artists.show', $product->id)->with('message', 'Data has been updated successfully');
+            return redirect()->route('artists.index', $artist->id)->with('message', 'Data has been updated successfully');
         }catch(QueryException $e){
             return redirect()->route('artists.edit')->withInput()->withErrors($e->getMessage());
         }
@@ -114,8 +115,8 @@ class ArtistController extends Controller
     public function destroy(Artist $artist)
     {
         try{
-            if(!empty($artist->image) && file_exists(public_path("dashboard/pictures/artists/$artist->image"))){
-                unlink(public_path("dashboard/pictures/artists/$artist->image"));
+            if(!empty($artist->image) && file_exists(public_path("dashboard/pictures/artist/$artist->image"))){
+                unlink(public_path("dashboard/pictures/artist/$artist->image"));
             };
             $artist->delete();
             return redirect()->route('artists.index')->with('message', 'Data has been deleted successfully');

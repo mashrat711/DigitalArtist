@@ -33,7 +33,7 @@
                 <th>Contact</th>
                 <th>Email</th>
                 <th>Address</th>
-                {{-- <th>Image</th> --}}
+                <th>Image</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -47,7 +47,7 @@
                 <th>Contact</th>
                 <th>Email</th>
                 <th>Address</th>
-                {{-- <th>Image</th> --}}
+                <th>Image</th>
                 <th>Action</th>
             </tr>
             </tfoot>
@@ -58,12 +58,13 @@
                     <td> {{ $employee->name ?? ''}}</td>
                     <td> {{ $employee->department ?? ''}}</td>
                     <td> {{ $employee->designation ?? ''}}</td>
-                    <td> {{ $employee->dob ?? null }}</td>
+                    <td> {{ $employee->dob ? date('d-m-Y',strtotime($employee->dob)):''}}</td>
                     <td> {{ $employee->contact ?? ''}}</td>
                     <td> {{ $employee->email ?? ''}}</td>
                     <td> {{ $employee->address ?? ''}}</td>
-                    {{-- <td><img class="d-flex align-self-center img-radius" style="width: 100px"
-                             src='{{asset("images/artists/$data->image")}}' alt=""></td> --}}
+                    {{-- {{dd("$data->image")}} --}}
+                    <td><img class="d-flex align-self-center img-radius" style="width: 100px"
+                             src='{{asset("dashboard/pictures/artist/$employee->image")}}' alt=""></td>
                     <td>
                         <div class="icon-btn">
                             <nobr>
@@ -83,22 +84,14 @@
 
 @section('script')
     <script src="{{asset('js/Datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('js/Datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('js/Datatables/dataTables.bootstrap4.min.js')}}"></script> 
     <script>
-        $(window).scroll(function () {
-            //set scroll position in session storage
-            sessionStorage.scrollPos = $(window).scrollTop();
-        });
-        var init = function () {
-            //get scroll position in session storage
-            $(window).scrollTop(sessionStorage.scrollPos || 0)
-        };
-        window.onload = init;
-
+       
         $(document).ready(function () {
             $('#dataTable').DataTable({
                 stateSave: true
             });
         });
+        $('#date').datepicker({format: "dd-mm-yyyy",autoclose: true,todayHighlight: true,showOtherMonths: true});
     </script>
 @endsection
