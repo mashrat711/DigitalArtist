@@ -36,7 +36,7 @@
             <div class="col-12 col-lg-6">
                 <div class="input-group input-group-sm input-group-primary">
                     <label class="input-group-addon" for="date">Date<span class="text-danger">*</span></label>
-                    {{Form::textarea('date', old('date') ? old('date') : (!empty($artistDetails->date) ? $artistDetails->date : null),['class' => 'form-control','id' => 'date', 'autocomplete'=>"off", 'rows'=>1])}}
+                    {{Form::text('date', old('date') ? old('dob') : (!empty($artistDetails->date) ? $artistDetails->date : now()->format('d-m-Y')),['class' => 'form-control','id' => 'date', 'autocomplete'=>"off", 'required'])}}
                 </div>
             </div>
 

@@ -43,29 +43,40 @@ class ArtistDetailsController extends Controller
      */
     public function store(StoreArtistDetailsRequest $request)
     {
-        // dd($request->all());
-        // $artistId = $request->only('artist_id');
 
+        
+        // dd($request->all());
+        // $model->created_at->format('H:i:s');
+        // dd($model);
+
+        
         try{
             $artistData = array();
-            foreach($request->title as  $key => $data){
-                $artistData[] = [
-                    'artist_id'=>$request->artist_id,
+            // $ArtistImage=array();
+            // if($request->has('image')){
+            //         $ArtistImage = $request->artist_id.'-'.time().'_'.$request->image->getClientOriginalName();
+            //         $request->image->move('dashboard/pictures/projects', $ArtistImage);
+            //         $artistData['image'] = $ArtistImage;
+            //     }else{
+            //         $artistData['image'] = null;
+            //     }
+            $date=$request->date;
 
+            foreach($request->title as  $key => $data){
+                
+                ArtistDetails::create([
+                    'artist_id'=>$request->artist_id,
                     'title'=>$request->title[$key],
                     'sub_title'=>$request->sub_title[$key],
                     'description'=>$request->description[$key],
-                ];
-            }
-            // dd($artistId,$artistData);
-            // DB::transaction(function()use($artistId, $artistData){
-            //     $requisition = ArtistDetails::create($artistId);
-            //     // $requisition->artist()->createMany($artistData);
-            // });
-                        // dd($artistData);
+                    'date'=>$request->date,
 
-            $DetailData= ArtistDetails::create($artistData);
-            dd($DetailData);
+                    ]);
+                
+        
+            }
+            
+
             return redirect()->route('artists.index');
         }catch(QueryException $e){
             return redirect()->route('artists.create')->withInput()->withErrors($e->getMessage());

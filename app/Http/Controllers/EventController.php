@@ -15,7 +15,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events=Event::all();
+        return view('dashboard.events.index', compact('events'));
     }
 
     /**
@@ -25,7 +26,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $formType = "create";
+        return view('dashboard.events.create', compact('formType'));
     }
 
     /**
@@ -36,7 +38,13 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        //
+        try{
+            $data = $request->all();
+            Event::create($data);
+            return redirect()->route('events.create')->with('message', 'Data has been inserted successfully');
+        }catch(QueryException $e){
+            return redirect()->route('events.create')->withInput()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -58,7 +66,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        $formType = "edit";
+        return view('dashboard.events.create', compact( 'formType','event'));
     }
 
     /**
@@ -70,7 +79,13 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
-        //
+        try{
+            $data = $request->all();
+            $event->update($data);
+            return redirect()->route('events.index')->with('message', 'Data has been updated successfully');
+        }catch(QueryException $e){
+            return redirect()->route('events.create')->withInput()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -81,6 +96,11 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        try{
+            $event->delete();
+            return redirect()->route('events.create')->with('message', 'Data has been deleted successfully');
+        }catch(QueryException $e){
+            return redirect()->route('events.create')->withErrors($e->getMessage());
+        }
     }
 }

@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('artist', ArtistController::class);
+Route::resource('artists', ArtistController::class);
 Route::resource('artistDetails', ArtistDetailsController::class);
 Route::resource('events', EventController::class);
+Route::get('notification', 'EventNotification@notification')->name('notification');
 
 Auth::routes();
 
