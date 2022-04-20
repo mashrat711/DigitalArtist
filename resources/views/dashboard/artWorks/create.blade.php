@@ -35,6 +35,22 @@
        
     </div>
         </div>
+        <div class=" row col-md-12">
+
+            
+            <div class="col-6">
+                <div class="input-group input-group-sm input-group-primary">
+                    <label class="input-group-addon" for="name">Event<span class="text-danger">*</span></label>
+                    {{Form::select('event_id', $events, old('event_id') ? old('event_id') : (!empty($artWork->event_id) ? $artWork->event_id : null),['class' => 'form-control','id' => 'name', 'placeholder'=>"Select Event", 'autocomplete'=>"off"])}}
+                </div>
+            </div>
+             <div class="col-6">
+                <div class="input-group input-group-sm input-group-primary">
+                    <label class="input-group-addon" for="name">Artist<span class="text-danger">*</span></label>
+                    {{Form::select('artist_id', $artists, old('artists') ? old('artists') : (!empty($artWork->artists) ? $artWork->artists : null),['class' => 'form-control','id' => 'name', 'placeholder'=>"Select Name", 'autocomplete'=>"off"])}}
+                </div>
+            </div>
+            </div>
         <div class=" col-md-12">
          <div class="input-group input-group-sm input-group-primary">
             <label class="input-group-addon" for="title">title<span class="text-danger">*</span></label>
@@ -51,19 +67,10 @@
             </div>
                     
 
-    <div class=" row col-md-12">
 
             
-            <div class="col-6">
-                <div class="input-group input-group-sm input-group-primary">
-                    <label class="input-group-addon" for="name">Event<span class="text-danger">*</span></label>
-                    {{Form::select('event_id', $events, old('event_id') ? old('event_id') : (!empty($artWork->event_id) ? $artWork->event_id : null),['class' => 'form-control','id' => 'name', 'placeholder'=>"Select Event", 'autocomplete'=>"off"])}}
-                </div>
-            </div>
-            <div class=" row col-md-12">
+         
             
-            
-                </div>
             <div class="row col-md-12">
                 <div class="col-12">
                     <div class="input-group input-group-sm input-group-primary">

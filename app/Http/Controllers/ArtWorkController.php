@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ArtWork;
 
 use App\Models\Event;
+use App\Models\Artist;
+
 
 use App\Http\Requests\StoreArtWorkRequest;
 use App\Http\Requests\UpdateArtWorkRequest;
@@ -31,8 +33,10 @@ class ArtWorkController extends Controller
     public function create()
     {
         $formType = "create";
+        $artists = Artist::orderBy('name')->pluck('name', 'id');
         $events = Event::orderBy('title')->pluck('title', 'id');
-        return view('dashboard.artWorks.create', compact('formType', 'events'));
+
+        return view('dashboard.artWorks.create', compact('formType', 'events','artists'));
     }
 
 
