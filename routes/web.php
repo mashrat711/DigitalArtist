@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 Route::resource('artists', ArtistController::class);
 Route::resource('artistDetails', ArtistDetailsController::class);
+Route::resource('artWorks', ArtWorkController::class);
 Route::resource('events', EventController::class);
 Route::get('notification', 'EventNotification@notification')->name('notification');
 
