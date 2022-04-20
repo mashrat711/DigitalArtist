@@ -12,18 +12,19 @@ class EventNotification extends Controller
 {
     public function notification()
     {
-        $currentTime = Carbon::now();
-        $clientsToNotif = Event::whereDate('date', $currentTime->addDays(1))->get();
-
-        $startDate = Carbon::createFromFormat('d/m/Y', '20/04/2022');
-        $endDate = Carbon::createFromFormat('d/m/Y', '21/04/2022');
-  
-        $users = Event::select('title', 'sub_title', 'description','date')
-                        // ->whereBetween('created_at', [$startDate, $currentTime])
-                        ->whereDate('date', $currentTime->addDays(1))
-                        ->get();
+     
+        $events=Event::all();
+        $todayDate = Carbon::now()->format('d-m-Y');
+        $yesterday = Carbon::yesterday()->format('d-m-Y');
+        $users = Event::all()
+                        ->where('date', $yesterday)
+                        ->first();
   
         dd($users);
+        dd($todayDate ,$yesterday);
+
+        
+        
         
     }
 }
