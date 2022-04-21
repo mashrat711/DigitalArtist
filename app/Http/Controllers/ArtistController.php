@@ -66,8 +66,10 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist)
     {
-        $artist=Artist::with('artistDetails')->first();
+        // $artist->created_at->diffForHumans()->get();
         // dd($artist);
+        $artist=Artist::with('artistDetails')->first();
+        
         return view('Frontend.ArtistDetails', compact('artist'));
     }
 

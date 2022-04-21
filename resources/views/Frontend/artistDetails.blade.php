@@ -200,8 +200,9 @@
                                 <span class="post-meta-category"><a href="">Lifestyle</a></span>
                             </div>
                             <div class="post-item-description">
-                                <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{$data->date}}</span>
-                                <span class="post-meta-comments"><a href=""><i class="fa fa-comments-omat('j-f-Y')"></i>33 Comments</a></span>
+                                <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{$data['created_at']->diffForHumans() }}</span>
+                                
+                                <span class="post-meta-comments"><a href=""><i class="fa fa-comments-omat('j-f-Y')">{{$data->created_at->format('H:i:s')}}</i></a></span>
                                 <h2><a href="#">Standard post with a single image
                                     </a></h2>
                                 <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
