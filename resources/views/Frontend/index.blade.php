@@ -27,7 +27,7 @@
 
         <div class="side-panel-wrap">
             <div class="logo">
-                <a href="#"><img src="homepages/architect/images/logo-dark.png"></a>
+                <a href="#"><img src="{{asset('Frontend/homepages/architect/images/logo-dark.png')}}"></a>
             </div>
             <hr class="space">
             <!--Navigation-->
@@ -40,6 +40,8 @@
                             <li><a href="index.html">Artists</a></li>
                             <li><a href="index.html">Works</a></li>
                             <li><a href="index.html">Events</a></li>
+                            <li><a href="{{'/login'}}">Login</a></li>
+
                             
                         </ul>
                     </nav>
@@ -101,12 +103,12 @@
         <!-- Inspiro Slider -->
         <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="360" data-autoplay="2600" data-animate-in="fadeIn" data-animate-out="fadeOut" data-items="1" data-loop="true" data-autoplay="true">
             <!-- Slide 1 -->
-            <div class="slide" style="background-image:url('homepages/architect/images/1.jpg');">
+            <div class="slide" style="background-image:url('Frontend/homepages/architect/images/1.jpg');">
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="slide-captions text-center">
                         <!-- Captions -->
-                        <img src="homepages/architect/images/icons/compass.png" width="32" height="32" alt="" class="center">
+                        <img src="{{asset('Frontend/homepages/architect/images/icons/compass.png')}}" width="32" height="32" alt="" class="center">
                         <h2 class="text-lg text-light no-margin text-uppercase">places for people</h2>
                         <h3 class="font-cedarville text-light">
                             Say hello to the POLO. The smartest and most flexible bootstrap template.
@@ -119,12 +121,12 @@
             </div>
             <!-- end: Slide 1 -->
             <!-- Slide 2 -->
-            <div class="slide" style="background-image:url('homepages/architect/images/2.jpg');">
+            <div class="slide" style="background-image:url('Frontend/homepages/architect/images/2.jpg');">
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="slide-captions text-center">
                         <!-- Captions -->
-                        <img src="homepages/architect/images/icons/measuring.png" width="32" height="32" alt="" class="center">
+                        <img src="{{asset('Frontend/homepages/architect/images/icons/measuring.png')}}" width="32" height="32" alt="" class="center">
                         <h2 class="text-lg text-light no-margin text-uppercase">Design</h2>
                         <h2 class="text-medium  text-light no-margin text-uppercase">is changing the world</h2>
                         <h3 class="font-cedarville text-light">
@@ -146,7 +148,7 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="heading-text heading-section">
-                            <h2>WE ARE POLO<br />ARCHITECT</h2>
+                            <h2>WE ARE<br />Artists</h2>
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -182,135 +184,29 @@
         <section id="section2" class="no-padding">
             <!-- Portfolio -->
             <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="0">
-
+               @foreach($image as $key => $data)
                 <!-- portfolio item -->
                 <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
                     <div class="portfolio-item-wrap">
                         <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/8.jpg" alt=""></a>
+                            <a href="#"><img src='{{asset("dashboard/pictures/gallery/$data->image")}}' alt=""></a>
                         </div>
                         <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/8.jpg" class="btn btn-light btn-rounded">Zoom</a>
+                            <a title="Paper Pouch!" data-lightbox="image" href="{{asset('Frontend/homepages/architect/images/gallery/8.jpg')}}" class="btn btn-light btn-rounded">Zoom</a>
                         </div>
                     </div>
                 </div>
                 <!-- end: portfolio item -->
+                @endforeach
 
 
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/7.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/7.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/6.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/6.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
-
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/5.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/5.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
-
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/5.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/5.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
-
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media ct-marketing ct-webdesign">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/4.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/4.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
-
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/3.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/3.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/2.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/2.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
-
-                <!-- portfolio item -->
-                <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                    <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
-                            <a href="#"><img src="homepages/architect/images/gallery/1.jpg" alt=""></a>
-                        </div>
-                        <div class="portfolio-description">
-                            <a title="Paper Pouch!" data-lightbox="image" href="homepages/architect/images/gallery/1.jpg" class="btn btn-light btn-rounded">Zoom</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end: portfolio item -->
-
+              
 
             </div>
             <!-- end: Portfolio -->
         </section>
         <!-- end: GALLERY -->
+         
 
         <!-- COUNTERS -->
         <section id="section2-1" class="background-grey">
@@ -395,7 +291,7 @@
                                 <div class="post-item-wrap">
                                     <div class="post-image">
                                         <a href="#">
-                                            <img alt="" src="images/blog/12.jpg">
+                                            <img alt="" src="{{asset('Frontend/images/blog/12.jpg')}}">
                                         </a>
                                         <span class="post-meta-category"><a href="">Lifestyle</a></span>
                                     </div>
@@ -419,10 +315,10 @@
                                     <div class="post-slider">
                                         <div class="carousel dots-inside arrows-visible arrows-only" data-items="1" data-loop="true" data-autoplay="true" data-lightbox="gallery">
                                             <a href="images/blog/11.jpg" data-lightbox="gallery-image">
-                                                <img alt="" src="images/blog/16.jpg">
+                                                <img alt="" src="{{asset('Frontend/images/blog/16.jpg')}}">
                                             </a>
                                             <a href="images/blog/16.jpg" data-lightbox="gallery-image">
-                                                <img alt="" src="images/blog/11.jpg">
+                                                <img alt="" src="{{asset('Frontend/images/blog/11.jpg')}}">
                                             </a>
                                         </div>
                                         <span class="post-meta-category"><a href="">Technology</a></span>
@@ -461,14 +357,16 @@
                     <span class="lead">Lorem ipsum dolor sit amet, consecte adipiscing elit.</span>
                 </div>
                 <div class="row team-members">
-                    <div class="col-lg-3">
+                 @foreach($artistLists as $key => $data)
+                 <div class="col-lg-3">
                         <div class="team-member">
+                        <a href="{{route('artists.show',$data->id)}}">
                             <div class="team-image">
-                                <img src="images/team/6.jpg">
+                                <img src='{{asset("dashboard/pictures/artist/$data->image")}}'>
                             </div>
                             <div class="team-desc">
-                                <h3>Alea Smith</h3>
-                                <span>Software Developer</span>
+                                <h3>{{$data->name}}</h3>
+                                <span>{{$data->designation ?? ''}}</span>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet. </p>
                                 <div class="align-center">
                                     <a class="btn btn-xs btn-slide btn-light" href="#">
@@ -489,98 +387,12 @@
                                     </a>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="team-member">
-                            <div class="team-image">
-                                <img src="images/team/7.jpg">
-                            </div>
-                            <div class="team-desc">
-                                <h3>Ariol Doe</h3>
-                                <span>Software Developer</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet. </p>
-                                <div class="align-center">
-                                    <a class="btn btn-xs btn-slide btn-light" href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                        <span>Facebook</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="#" data-width="100">
-                                        <i class="fab fa-twitter"></i>
-                                        <span>Twitter</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="#" data-width="118">
-                                        <i class="fab fa-instagram"></i>
-                                        <span>Instagram</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="mailto:#" data-width="80">
-                                        <i class="far fa-envelope"></i>
-                                        <span>Mail</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="team-member">
-                            <div class="team-image">
-                                <img src="images/team/8.jpg">
-                            </div>
-                            <div class="team-desc">
-                                <h3>Emma Ross</h3>
-                                <span>Software Developer</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet. </p>
-                                <div class="align-center">
-                                    <a class="btn btn-xs btn-slide btn-light" href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                        <span>Facebook</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="#" data-width="100">
-                                        <i class="fab fa-twitter"></i>
-                                        <span>Twitter</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="#" data-width="118">
-                                        <i class="fab fa-instagram"></i>
-                                        <span>Instagram</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="mailto:#" data-width="80">
-                                        <i class="far fa-envelope"></i>
-                                        <span>Mail</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="team-member">
-                            <div class="team-image">
-                                <img src="images/team/9.jpg">
-                            </div>
-                            <div class="team-desc">
-                                <h3>Victor Loda</h3>
-                                <span>Software Developer</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet. </p>
-                                <div class="align-center">
-                                    <a class="btn btn-xs btn-slide btn-light" href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                        <span>Facebook</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="#" data-width="100">
-                                        <i class="fab fa-twitter"></i>
-                                        <span>Twitter</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="#" data-width="118">
-                                        <i class="fab fa-instagram"></i>
-                                        <span>Instagram</span>
-                                    </a>
-                                    <a class="btn btn-xs btn-slide btn-light" href="mailto:#" data-width="80">
-                                        <i class="far fa-envelope"></i>
-                                        <span>Mail</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
+                    
+                 
 
                 </div>
             </div>

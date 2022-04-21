@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\ArtistDetails;
+
 use App\Http\Requests\StoreArtistRequest;
 use App\Http\Requests\UpdateArtistRequest;
 
@@ -64,7 +66,9 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist)
     {
-        return view('dashboard.artists.show', compact('artist'));
+        $artist=Artist::with('artistDetails')->first();
+        // dd($artist);
+        return view('Frontend.ArtistDetails', compact('artist'));
     }
 
     /**
