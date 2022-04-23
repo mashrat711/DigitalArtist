@@ -29,6 +29,8 @@
                 <th>Title</th>
                 <th>Sub Title</th>
                 <th>Date</th>
+                <th>Status</th>
+                
                 
                 <th>Action</th>
             </tr>
@@ -39,6 +41,7 @@
                 <th>Title</th>
                 <th>Sub Title</th>
                 <th>Date</th>
+                <th>Status</th>
                 
                 <th>Action</th>
             </tr>
@@ -50,6 +53,13 @@
                     <td> {{ $data->title }}</td>
                     <td> {{ $data->sub_title }}</td>
                     <td> {{ $data->date }}</td>
+                    <td>
+                    <?php if($data->status == '1'){ ?> 
+                        <a href="{{url('/status-update',$data->id)}}" class="btn btn-success">Active</a>
+                    <?php }else{ ?> 
+                    <a href="{{url('/status-update',$data->id)}}" class="btn btn-danger">Inactive</a>
+                    <?php } ?>
+                    </td>
                     
                     <td>
                         <div class="icon-btn">

@@ -23,6 +23,9 @@ Route::resource('artists', ArtistController::class);
 Route::resource('artistDetails', ArtistDetailsController::class);
 Route::resource('artWorks', ArtWorkController::class);
 Route::resource('events', EventController::class);
+
+Route::get('/status-update/{id}','EventController@status_update');
+
 Route::get('notification', 'EventNotification@notification')->name('notification');
 Route::get('/', 'IndexController@artistList')->name('/');
 Route::get('/artistDetailPage', 'IndexController@artistDetailPage')->name('/artistDetailPage');

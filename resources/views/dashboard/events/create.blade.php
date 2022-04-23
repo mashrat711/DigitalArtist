@@ -43,7 +43,7 @@
             <div class="col-12">
                 <div class="input-group input-group-sm input-group-primary">
                     <label class="input-group-addon" for="account_number">Date</label>
-                    {{Form::text('date', old('date') ? old('date') : (!empty($artist->date) ? $artist->date : now()->format('d-m-Y')),['class' => 'form-control','id' => 'date', 'autocomplete'=>"off", 'required'])}}
+                    {{Form::text('date', old('date') ? old('date') : (!empty($event->date) ? $event->date : now()->format('d-m-Y')),['class' => 'form-control','id' => 'date', 'autocomplete'=>"off", 'required'])}}
                 </div>
             </div>
 
@@ -53,6 +53,16 @@
                     {{Form::textarea('description', old('description') ? old('description') : (!empty($event->description) ? $event->description : null),['class' => 'form-control','id' => 'description', 'autocomplete'=>"off",'rows'=>3])}}
                 </div>
             </div>
+            <div class="col-6">
+            <div class="input-group input-group-sm input-group-primary">
+<label class="input-group-addon" for="description">Status </label> 
+   <select name="status" class="form-control" required>
+      <option value="">---Select Status---</option>
+      <option value="1" <?php if("status" == '1'){echo'selected';} ?>>Active</option>
+      <option value="0" <?php if("status" == '0'){echo'selected';} ?>>Inactive</option>
+    </select>
+    </div>
+    </div>
 
             
             

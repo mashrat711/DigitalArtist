@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class EventController extends Controller
 {
@@ -67,6 +69,7 @@ class EventController extends Controller
     public function edit(Event $event)
     {
         $formType = "edit";
+        
         return view('dashboard.events.create', compact( 'formType','event'));
     }
 
@@ -103,4 +106,30 @@ class EventController extends Controller
             return redirect()->route('events.create')->withErrors($e->getMessage());
         }
     }
+
+
+    function status_update($id)
+{
+	//get product status with the help of product ID
+	$event = DB::table('events')
+				->select('status')
+				->where('id','=',$id)
+				->first();
+                // dd($event);
+
+	//Check user status
+	if($event->status == '1'){
+		$status = '0';
+	}else{
+		$status = '1';
+	}
+
+	//update product status
+	$values = array('status' => $status );
+    // dd($values);
+	DB::table('events')->where('id',$id)->update($values);
+
+	session()->flash('msg','Product status has been updated successfully.');
+	return redirect()->route('events.index');
+}
 }
