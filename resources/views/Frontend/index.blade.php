@@ -35,12 +35,13 @@
                 <div class="container">
                     <nav>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="index.html">About</a></li>
-                            <li><a href="index.html">Artists</a></li>
-                            <li><a href="index.html">Works</a></li>
-                            <li><a href="index.html">Events</a></li>
+                            <li><a href="{{'/'}}">Home</a></li>
+                            <li><a href="#section1">About</a></li>
+                            <li><a href="#section2">Works</a></li>
+                            <li><a href="#section3">Events</a></li>
+                            <li><a href="#section4">Artists</a></li>
                             <li><a href="{{'/login'}}">Login</a></li>
+                            <li><a href="{{'/register'}}">Register</a></li>
 
                             
                         </ul>
@@ -257,7 +258,7 @@
         <!-- end: COUNTERS -->
 
         <!-- PARALLAX -->
-        <section id="section2-2" data-bg-parallax="homepages/architect/images/parallax/1.jpg" class="text-center text-light p-t-150 p-b-150">
+        {{-- <section id="section2-2" data-bg-parallax="homepages/architect/images/parallax/1.jpg" class="text-center text-light p-t-150 p-b-150">
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="heading-text heading-section text-center m-b-40">
@@ -268,7 +269,7 @@
 
                 <a class="btn" href="#"><span>Learn More</span></a>
             </div>
-        </section>
+        </section> --}}
         <!-- end: COUNTERS -->
 
         <!-- BLOG -->
@@ -277,65 +278,36 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="heading-text heading-section">
-                            <h2>OUR BLOG</h2>
+                            <h2>OUR Events</h2>
                             <span class="lead">Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.
                             </span>
                         </div>
                     </div>
                     <div class="col-lg-9">
+                   
                         <!-- Blog post-->
                         <div id="blog" class="grid-layout post-2-columns m-b-30" data-margin="30" data-item="post-item">
-
+                        @foreach($events as $key => $data)
                             <!-- Post item-->
                             <div class="post-item border">
                                 <div class="post-item-wrap">
-                                    <div class="post-image">
-                                        <a href="#">
-                                            <img alt="" src="{{asset('Frontend/images/blog/12.jpg')}}">
-                                        </a>
-                                        <span class="post-meta-category"><a href="">Lifestyle</a></span>
-                                    </div>
+                                    
                                     <div class="post-item-description">
-                                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-                                        <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
-                                        <h2><a href="#">Standard post with a single image
+                                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{$data->date}}</span>
+                                        {{-- <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span> --}}
+                                        <h2><a href="#">{{$data->title}}
                                             </a></h2>
-                                        <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
+                                        <p>{{$data->description}}</p>
 
-                                        <a href="#" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end: Post item-->
-
-                            <!-- Post item-->
-                            <div class="post-item border">
-                                <div class="post-item-wrap">
-                                    <div class="post-slider">
-                                        <div class="carousel dots-inside arrows-visible arrows-only" data-items="1" data-loop="true" data-autoplay="true" data-lightbox="gallery">
-                                            <a href="images/blog/11.jpg" data-lightbox="gallery-image">
-                                                <img alt="" src="{{asset('Frontend/images/blog/16.jpg')}}">
-                                            </a>
-                                            <a href="images/blog/16.jpg" data-lightbox="gallery-image">
-                                                <img alt="" src="{{asset('Frontend/images/blog/11.jpg')}}">
-                                            </a>
-                                        </div>
-                                        <span class="post-meta-category"><a href="">Technology</a></span>
-                                    </div>
-
-                                    <div class="post-item-description">
-                                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-                                        <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
-                                        <h2><a href="#">Simplicity, a post with slider gallery</a></h2>
-                                        <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
-
-                                        <a href="#" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+                                        <a href="{{route('events.show',$data->id)}}" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
 
                                     </div>
                                 </div>
                             </div>
                             <!-- end: Post item-->
+                            @endforeach
+
+                           
                         </div>
                         <!-- End: Blog post-->
                     </div>

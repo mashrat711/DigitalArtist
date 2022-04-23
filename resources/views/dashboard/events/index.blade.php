@@ -29,7 +29,11 @@
                 <th>Title</th>
                 <th>Sub Title</th>
                 <th>Date</th>
+                <?php if(Auth::User()->user_type=='admin'){?>  
                 <th>Status</th>
+                 <?php }else{ ?>
+                 <th>Submit Work</th>
+                 <?php } ?>
                 
                 
                 <th>Action</th>
@@ -53,13 +57,24 @@
                     <td> {{ $data->title }}</td>
                     <td> {{ $data->sub_title }}</td>
                     <td> {{ $data->date }}</td>
-                    <td>
+<td>
+                    <?php if(Auth::User()->user_type=='admin'){?>  
+                        
+                    
                     <?php if($data->status == '1'){ ?> 
                         <a href="{{url('/status-update',$data->id)}}" class="btn btn-success">Active</a>
                     <?php }else{ ?> 
                     <a href="{{url('/status-update',$data->id)}}" class="btn btn-danger">Inactive</a>
                     <?php } ?>
+                            
+                   <?php }else{ ?>
+
+                         <a href="{{ route("artWorks.create") }}" data-toggle="tooltip" title="Edit" class="btn btn-outline-danger"><i class="fas fa-plus"></i></a>
+                        
+                    <?php } ?>
                     </td>
+                     
+                    
                     
                     <td>
                         <div class="icon-btn">

@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class EventController extends Controller
@@ -57,7 +58,29 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+       
+      
+        $todayDate = Carbon::now()->format('d-m-Y');
+        
+        // dd($event->date);
+        if($event->date==$todayDate)
+            {
+                $event=Event::with('artWorks')->first();
+                return view('Frontend.events', compact('event'));
+
+            }
+            else
+               return view('Frontend.message', compact('event'));
+
+        
+        // $yesterday = Carbon::yesterday()->format('d-m-Y');
+        // $users = Event::with('artWorks')
+        //                 ->where('date', $todayDate)
+        //                 ->first();
+        // $event=Event::with('artWorks')->first();
+        // dd($event);
+        
+        // return view('Frontend.events', compact('event'));
     }
 
     /**
