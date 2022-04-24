@@ -12,6 +12,8 @@
 
 @section('breadcrumb-button')
     <a href="{{ url('artists/create') }}" class="btn btn-out-dashed btn-sm btn-custom"><i class="fa fa-plus"></i></a>
+        <a href="{{ url('artistDetails/create') }}" class="btn btn-out-dashed btn-sm btn-primary">Add Projects</a>
+
 @endsection
 
 @section('sub-title')
@@ -64,7 +66,8 @@
                     <td> {{ $employee->address ?? ''}}</td>
                     {{-- {{dd("$data->image")}} --}}
                     <td><img class="d-flex align-self-center img-radius" style="width: 100px"
-                             src='{{asset("dashboard/pictures/artist/$employee->image")}}' alt=""></td>
+                             src='{{asset("dashboard/pictures/artist/$employee->image")}}' alt="">
+                             </td>
                     <td>
                         <div class="icon-btn">
                             <nobr>

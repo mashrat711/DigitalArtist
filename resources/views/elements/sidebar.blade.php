@@ -21,7 +21,7 @@
                     </ul>
                     
                 </li>
-                <li class="pcoded-hasmenu {{request()->routeIs(['warehouses.*','suppliers.*','banks.*','rawMaterials.*', 'units.*', 'categories.*','lcCostHeads.*']) ? "active pcoded-trigger" : null}}">
+                {{-- <li class="pcoded-hasmenu {{request()->routeIs(['warehouses.*','suppliers.*','banks.*','rawMaterials.*', 'units.*', 'categories.*','lcCostHeads.*']) ? "active pcoded-trigger" : null}}">
                     <a href="javascript:void(0)">
                         <span class="pcoded-micon"><i class="ti-settings"></i><b>P</b></span>
                         <span class="pcoded-mtext">Art Works</span>
@@ -32,7 +32,7 @@
                         <li class="{{request()->routeIs('artists.*') ? "active" : null}}"><a href="{{ route('artists.create') }}"><span class="pcoded-micon"><i class="icon-pie-chart"></i></span><span class="pcoded-mtext"> Create Profile </span><span class="pcoded-mcaret"></span></a></li>
                     </ul>
                     
-                </li>
+                </li> --}}
                 <li class="pcoded-hasmenu {{request()->routeIs(['warehouses.*','suppliers.*','banks.*','rawMaterials.*', 'units.*', 'categories.*','lcCostHeads.*']) ? "active pcoded-trigger" : null}}">
                     <a href="javascript:void(0)">
                         <span class="pcoded-micon"><i class="ti-settings"></i><b>P</b></span>

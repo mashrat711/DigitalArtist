@@ -128,8 +128,9 @@
             <div class="container">
                 <div class="row  m-b-50">
                     <div class="col-lg-12">
-                        <h4 class="text-center">ABOUT</h4>
-                        <h1 class="text-center text-medium-light m-b-80">{{$event->name}}</h1>
+                        <h2 class="text-center">{{$event->title}}</h2>
+                        <br>
+                        {{-- <h1 class="text-center text-medium-light m-b-80">{{$event->sub_title}}</h1> --}}
 
                     </div>
                     <div class="col-lg-12">
@@ -139,17 +140,16 @@
                                 <p class="lead">The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. A true story, that never been told!. Fusce id mi diam, non ornare orci. Pellentesque ipsum erat,
                                     <br>
                                     <br>
-<p class="lead text-center">Contact me</p>
                                 <div class="text-center">
 
                                     <address>
-                                        <strong>{{$event->title}}</strong><br>
-                                        {{$event->sub_title}}<br>
+                                        {{-- <strong>{{$event->title}}</strong><br>
+                                        {{$event->sub_title}}<br> --}}
                                         {{$event->date}}<br>
                                     </address>
 
                                     <address>
-                                        <strong>Email me</strong><br>
+                                        <strong>Email us</strong><br>
                                         <a href="mailto:#">first.last@example.com</a>
                                     </address>
 

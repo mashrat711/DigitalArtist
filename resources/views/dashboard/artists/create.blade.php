@@ -27,22 +27,18 @@
         {!! Form::open(array('url' => "artists",'method' => 'POST','encType' =>"multipart/form-data", 'class'=>'custom-form')) !!}
     @endif
         <div class="row">
-        <div class="col-md-12">
         
-    
-        
-         
+        </div>
+         <div class=" col-md-12">
         <div class="input-group input-group-sm input-group-primary">
             <label class="input-group-addon" for="name">Name<span class="text-danger">*</span></label>
             {{Form::text('name', old('name') ? old('name') : (!empty($artist->name) ? $artist->name : null),['class' => 'form-control','id' => 'name', 'autocomplete'=>"off"])}}
         </div>
-    </div>
-        </div>
+         </div>
             <div class=" col-md-12">
             <div class="input-group input-group-sm input-group-primary">
                     <label class="input-group-addon" for="designation_id">Designation<span class="text-danger">*</span></label>
-                    {{-- {{Form::select('designation_id', $designations, old('designation_id') ? old('designation_id') : (!empty($artist->designation_id) ? $artist->designation_id : null),['class' => 'form-control','id' => 'designation_id', 'placeholder'=>"Select Section", 'autocomplete'=>"off"])}} --}}
-                                {{Form::text('designation', old('designation') ? old('designation') : (!empty($artist->designation) ? $artist->designation : null),['class' => 'form-control','id' => 'designation', 'autocomplete'=>"off"])}}
+                    {{Form::text('designation', old('designation') ? old('designation') : (!empty($artist->designation) ? $artist->designation : null),['class' => 'form-control','id' => 'designation', 'autocomplete'=>"off"])}}
 
                 </div>
             </div>

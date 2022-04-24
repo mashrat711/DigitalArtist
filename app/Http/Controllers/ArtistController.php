@@ -10,6 +10,11 @@ use App\Http\Requests\UpdateArtistRequest;
 
 class ArtistController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['except' => [
+            'show'
+        ]]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,11 +51,12 @@ class ArtistController extends Controller
             // dd($artistData);
             if($request->has('image')){
                 $ArtistImage = $request->name.'-'.time().'_'.$request->image->getClientOriginalName();
-                $request->image->move('dashboard/pictures/artists', $ArtistImage);
+                $request->image->move('dashboard/pictures/artist', $ArtistImage);
                 $artistData['image'] = $ArtistImage;
             }else{
                 $artistData['image'] = null;
             }
+            // dd($artistData);
             Artist::create($artistData);
             return redirect()->route('artists.index');
         }catch(QueryException $e){
@@ -68,7 +74,8 @@ class ArtistController extends Controller
     {
         // $artist->created_at->diffForHumans()->get();
         // dd($artist);
-        $artist=Artist::with('artistDetails')->first();
+        $artist=Artist::with('artistDetails')->where('id',$artist->id)->first();
+        // dd($artist);
         
         return view('Frontend.ArtistDetails', compact('artist'));
     }

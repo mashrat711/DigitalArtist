@@ -114,7 +114,7 @@
                         <h3 class="font-cedarville text-light">
                             Say hello to the POLO. The smartest and most flexible bootstrap template.
                         </h3>
-                        <a class="btn btn-outline btn-light" href="http://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923">Purchase POLO</a>
+                        <a class="btn btn-outline btn-light" href="">Purchase POLO</a>
 
                         <!-- end: Captions -->
                     </div>
@@ -133,7 +133,6 @@
                         <h3 class="font-cedarville text-light">
                             Say hello to the POLO. The smartest and most flexible bootstrap template.
                         </h3>
-                        <a class="btn btn-outline btn-light" href="http://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923">Purchase POLO</a>
 
                         <!-- end: Captions -->
                     </div>
@@ -381,43 +380,43 @@
 
                 <ul class="grid grid-5-columns">
                     <li>
-                        <a href="#"><img alt="" src="images/clients/1.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/1.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/2.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/2.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/3.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/3.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/4.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/4.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/5.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/6.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/6.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/7.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/7.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/8.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/8.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/9.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/9.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/10.png')}}">
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img alt="" src="images/clients/10.png">
+                        <a href="#"><img alt="" src="{{asset('Frontend/images/clients/1.png')}}">
                         </a>
                     </li>
                 </ul>
@@ -437,7 +436,7 @@
                                 <div class="widget-title">Polo HTML5 Template</div>
                                 <p class="mb-5">Built with love in Fort Worth, Texas, USA<br>
                                     All rights reserved. Copyright © 2019. INSPIRO.</p>
-                                <a href="https://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923" class="btn btn-inverted">Purchase Now</a>
+                                <a href="" class="btn btn-inverted">Purchase Now</a>
                             </div>
                         </div>
                         <div class="col-lg-7">

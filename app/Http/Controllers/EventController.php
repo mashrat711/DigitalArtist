@@ -58,9 +58,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-       
-      
-        $todayDate = Carbon::now()->format('d-m-Y');
+       $todayDate = Carbon::now()->format('d-m-Y');
         
         // dd($event->date);
         if($event->date==$todayDate)
